@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes Web con Flexbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            background-color: #1e40af;
+            color: white;
+            padding: 1rem;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        nav {
+            background-color: #374151;
+            color: white;
+            padding: 1rem;
+            flex: 0 0 200px;
+        }
+        main {
+            flex: 1;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        aside {
+            flex: 0 0 200px;
+            background-color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .component-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .cards-container, .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .card, .gallery-item {
+            flex: 1 1 200px;
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .overlay.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            nav, aside {
+                flex: 0 0 auto;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            .cards-container, .gallery-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <h1 class="text-2xl font-bold">Componentes Web con Flexbox</h1>
+            <p>Ejemplos de componentes comunes en una página web</p>
+        </header>
+
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Barra de Navegación -->
+            <nav>
+                <h2 class="text-lg font-semibold mb-2">Barra de Navegación</h2>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="#" class="text-blue-300 hover:text-white">Inicio</a></li>
+                    <li><a href="#" class="text-blue-300 hover:text-white">Acerca</a></li>
+                    <li><a href="#" class="text-blue-300 hover:text-white">Servicios</a></li>
+                    <li><a href="#" class="text-blue-300 hover:text-white">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Área Principal -->
+            <main>
+                <!-- Lista de Componentes -->
+                <section class="component-list mb-6">
+                    <h2 class="text-xl font-semibold mb-4">Lista de Componentes Comunes</h2>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Encabezado (Header):</strong> Sección superior con título o logo.</li>
+                        <li><strong>Barra de Navegación (Nav):</strong> Menú con enlaces para navegar.</li>
+                        <li><strong>Contenido Principal (Main):</strong> Área con el contenido principal.</li>
+                        <li><strong>Barra Lateral (Sidebar):</strong> Contenido secundario a un lado.</li>
+                        <li><strong>Pie de Página (Footer):</strong> Sección inferior con información adicional.</li>
+                        <li><strong>Botones:</strong> Elementos interactivos para acciones.</li>
+                        <li><strong>Formulario:</strong> Campos para entrada de datos.</li>
+                        <li><strong>Tarjetas (Cards):</strong> Contenedores para información agrupada.</li>
+                        <li><strong>Galería de Imágenes:</strong> Colección de imágenes organizadas.</li>
+                        <li><strong>Modal:</strong> Ventana emergente para contenido adicional.</li>
+                    </ul>
+                </section>
+
+                <!-- Botones -->
+                <section class="mb-6">
+                    <h2 class="text-lg font-semibold mb-2">Botones</h2>
+                    <div class="flex gap-2">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Botón Primario</button>
+                        <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Botón Secundario</button>
+                    </div>
+                </section>
+
+                <!-- Formulario -->
+                <section class="mb-6">
+                    <h2 class="text-lg font-semibold mb-2">Formulario</h2>
+                    <div class="flex flex-col gap-2 max-w-xs">
+                        <input type="text" placeholder="Nombre" class="border p-2 rounded">
+                        <input type="email" placeholder="Correo" class="border p-2 rounded">
+                        <textarea placeholder="Mensaje" class="border p-2 rounded"></textarea>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Enviar</button>
+                    </div>
+                </section>
+
+                <!-- Tarjetas -->
+                <section class="mb-6">
+                    <h2 class="text-lg font-semibold mb-2">Tarjetas</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="font-semibold">Tarjeta 1</h3>
+                            <p>Contenido de ejemplo.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="font-semibold">Tarjeta 2</h3>
+                            <p>Contenido de ejemplo.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="font-semibold">Tarjeta 3</h3>
+                            <p>Contenido de ejemplo.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Galería de Imágenes -->
+                <section class="mb-6">
+                    <h2 class="text-lg font-semibold mb-2">Galería de Imágenes</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-item bg-gray-300 h-32 flex items-center justify-center">Imagen 1</div>
+                        <div class="gallery-item bg-gray-300 h-32 flex items-center justify-center">Imagen 2</div>
+                        <div class="gallery-item bg-gray-300 h-32 flex items-center justify-center">Imagen 3</div>
+                    </div>
+                </section>
+
+                <!-- Modal -->
+                <section>
+                    <h2 class="text-lg font-semibold mb-2">Modal</h2>
+                    <button onclick="toggleModal()" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Abrir Modal</button>
+                    <div id="modal" class="modal">
+                        <h3 class="font-semibold">Ventana Modal</h3>
+                        <p>Este es un ejemplo de modal.</p>
+                        <button onclick="toggleModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Cerrar</button>
+                    </div>
+                    <div id="overlay" class="overlay"></div>
+                </section>
+            </main>
+
+            <!-- Barra Lateral -->
+            <aside>
+                <h2 class="text-lg font-semibold mb-2">Barra Lateral</h2>
+                <p>Contenido secundario, como enlaces o widgets.</p>
+                <ul class="list-disc pl-5">
+                    <li><a href="#" class="text-blue-500 hover:underline">Enlace 1</a></li>
+                    <li><a href="#" class="text-blue-500 hover:underline">Enlace 2</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Pie de Página -->
+        <footer class="text-center">
+            <p>&copy; 2025 Componentes Web con Flexbox. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleModal() {
+            document.getElementById('modal').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
