@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Guía Práctica: ¡Dale Estilo a tu Página Web con CSS!</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1, h3 {
+            color: #4A90E2;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.8em;
+            margin-top: 40px;
+        }
+        p, li {
+            font-size: 1.1em;
+        }
+        code {
+            background-color: #eef1f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        strong {
+            color: #d9534f;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+        .congrats {
+            text-align: center;
+            font-size: 2em;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><span class="emoji">🎨</span> Guía Práctica: ¡Dale Estilo a tu Página Web con CSS!</h1>
+
+        <p><span class="emoji">👋</span> ¡Hola! ¡Bienvenido a tu primera aventura con CSS!</p>
+
+        <p>Piensa en esto:</p>
+        <ul>
+            <li><strong>HTML</strong> es como el <strong>esqueleto</strong> <span class="emoji">💀</span> de una página web. Pone los textos, los títulos y las imágenes.</li>
+            <li><strong>CSS</strong> es como la <strong>ropa y el maquillaje</strong> <span class="emoji">👕💄</span>. Le da color, tamaño y estilo.</li>
+        </ul>
+
+        <p>Hoy, vamos a vestir nuestro esqueleto HTML para que se vea genial. ¡Usaremos Visual Studio Code para crear una pequeña tarjeta de presentación!</p>
+
+        <h3><span class="emoji">📂</span> Paso 1: Prepara tu Espacio de Trabajo</h3>
+        <ol>
+            <li>Abre <strong>Visual Studio Code</strong>.</li>
+            <li>Ve a <code>Archivo > Abrir Carpeta</code> y crea una nueva carpeta llamada <code>Mi_Pagina_Web</code>.</li>
+            <li>Dentro de esa carpeta, crea dos archivos nuevos:
+                <ul>
+                    <li><code>index.html</code> (aquí vivirá nuestro esqueleto).</li>
+                    <li><code>styles.css</code> (aquí guardaremos toda la ropa y estilos).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3><span class="emoji">뼈</span> Paso 2: Construye el Esqueleto (HTML)</h3>
+        <p>Copia y pega este código en tu archivo <code>index.html</code>. Este es el contenido de nuestra página.</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Mi Tarjeta de Presentación&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Mi Nombre&lt;/h1&gt;
+    &lt;p&gt;Me encanta la programación y el diseño.&lt;/p&gt;
+
+    &lt;div class="tarjeta"&gt;
+        &lt;h2&gt;Sobre mí&lt;/h2&gt;
+        &lt;p&gt;Estoy aprendiendo a crear páginas web increíbles.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p><i>*Si abres este archivo en tu navegador, verás texto sin estilo. ¡Ahora vamos a darle vida!*</i></p>
+
+        <h3><span class="emoji">🔗</span> Paso 3: Conecta la Ropa con el Esqueleto (Link CSS)</h3>
+        <p>Para que el HTML sepa dónde buscar sus estilos, debemos conectarlos.</p>
+        <p>En tu archivo <code>index.html</code>, <strong>agrega esta línea dentro del <code>&lt;head&gt;</code></strong>:</p>
+        <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+        <p>El <code>&lt;head&gt;</code> de tu <code>index.html</code> ahora se verá así:</p>
+        <pre><code>&lt;head&gt;
+    &lt;title&gt;Mi Tarjeta de Presentación&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+        <p>¡Excelente! Ahora están conectados.</p>
+
+        <h3><span class="emoji">🎨</span> Paso 4: ¡A Pintar! Tu Primera Regla de CSS</h3>
+        <p>Vamos a tu archivo <code>styles.css</code>. Aquí es donde ocurre la magia.</p>
+        <p>Una regla de CSS tiene 3 partes:</p>
+        <ol>
+            <li><strong>Selector:</strong> ¿A qué le quieres dar estilo? (Ej: <code>h1</code>, <code>p</code>, <code>body</code>).</li>
+            <li><strong>Propiedad:</strong> ¿Qué quieres cambiar? (Ej: <code>color</code>, <code>font-size</code>).</li>
+            <li><strong>Valor:</strong> ¿Qué aspecto le quieres dar? (Ej: <code>blue</code>, <code>24px</code>).</li>
+        </ol>
+        <p><strong>Cambiemos el color del título <code>&lt;h1&gt;</code> a un tono azul.</strong> Escribe esto en <code>styles.css</code>:</p>
+        <pre><code>h1 {
+    color: #4A90E2; /* Un bonito color azul */
+}</code></pre>
+        <p><strong>¡Guarda ambos archivos!</strong> Ahora, abre o actualiza el archivo <code>index.html</code> en tu navegador. ¡Tu título principal ahora es azul!</p>
+
+        <h3><span class="emoji">🖌️</span> Paso 5: Cambiando el Fondo y el Texto de Toda la Página</h3>
+        <p>Podemos cambiar el estilo de toda la página seleccionando la etiqueta <code>&lt;body&gt;</code>.</p>
+        <p>Agrega esto a tu archivo <code>styles.css</code>:</p>
+        <pre><code>body {
+    background-color: #F4F4F9; /* Un fondo gris muy claro */
+    font-family: sans-serif;   /* Una fuente fácil de leer */
+    color: #333333;           /* Color de texto principal (gris oscuro) */
+}</code></pre>
+        <p>¡Refresca tu navegador! Toda la página tiene un nuevo fondo y una letra más moderna.</p>
+
+        <h3><span class="emoji">🏷️</span> Paso 6: Creando una Tarjeta con "Clases"</h3>
+        <p>En nuestro HTML, hay un <code>&lt;div&gt;</code> con algo especial: <code>class="tarjeta"</code>. Una "clase" es como una etiqueta de nombre que le ponemos a un elemento para darle un estilo único.</p>
+        <p>Para darle estilo a una clase, usamos un punto <code>.</code> antes del nombre.</p>
+        <p>Agrega esto a <code>styles.css</code> para diseñar nuestra tarjeta:</p>
+        <pre><code>.tarjeta {
+    background-color: white;      /* Fondo blanco para la tarjeta */
+    border: 1px solid #DDDDDD;    /* Un borde delgado y gris */
+    border-radius: 10px;          /* ¡Esquinas redondeadas! */
+    padding: 20px;                /* Espacio por dentro de la tarjeta */
+    margin: 30px;                 /* Espacio por fuera de la tarjeta */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Una sombra para que parezca que flota */
+}</code></pre>
+        <p><strong>¡Guarda y refresca!</strong> Ahora deberías ver una hermosa tarjeta con esquinas redondeadas y una sombra sutil. ¡Se ve muy profesional!</p>
+
+        <div class="congrats">
+            <p><span class="emoji">🎉</span> ¡Felicidades! <span class="emoji">🎉</span></p>
+            <p>¡Lo lograste! Has creado tu primera página web con estilo usando HTML y CSS.</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* Este es el archivo CSS completo.
+  ¡Sigue la guía para construirlo paso a paso!
+*/
+
+/* PASO 5: Estilos para toda la página */
+body {
+    background-color: #F4F4F9; /* Un fondo gris muy claro */
+    font-family: sans-serif;   /* Una fuente fácil de leer */
+    color: #333333;           /* Color de texto principal (gris oscuro) */
+}
+
+/* PASO 4: Estilo para el título principal */
+h1 {
+    color: #4A90E2; /* Un bonito color azul */
+}
+
+/* PASO 6: Estilo para nuestra tarjeta de presentación */
+.tarjeta {
+    background-color: white;      /* Fondo blanco para la tarjeta */
+    border: 1px solid #DDDDDD;    /* Un borde delgado y gris */
+    border-radius: 10px;          /* ¡Esquinas redondeadas! */
+    padding: 20px;                /* Espacio por dentro de la tarjeta */
+    margin: 30px;                 /* Espacio por fuera de la tarjeta */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Una sombra para que parezca que flota */
+}
