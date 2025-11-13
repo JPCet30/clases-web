@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculos Concéntricos con Degradado</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Fondo del body */
+            margin: 0;
+        }
+        .circle-container {
+            position: relative;
+            width: 300px; /* Tamaño máximo del contenedor */
+            height: 300px; /* Tamaño máximo del contenedor */
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+        .circle-1 {
+            background: radial-gradient(circle, #ff7e5f, #feb47b); /* Degradado del círculo más grande */
+        }
+        .circle-2 {
+            background: radial-gradient(circle, #feb47b, #ff7e5f); /* Degradado del segundo círculo */
+            width: 75%; /* Tamaño del segundo círculo */
+            height: 75%; /* Tamaño del segundo círculo */
+            top: 12.5%; /* Centrando el círculo */
+            left: 12.5%; /* Centrando el círculo */
+        }
+        .circle-3 {
+            background: radial-gradient(circle, #ffafbd, #ffc3a0); /* Degradado del tercer círculo */
+            width: 50%; /* Tamaño del tercer círculo */
+            height: 50%; /* Tamaño del tercer círculo */
+            top: 25%; /* Centrando el círculo */
+            left: 25%; /* Centrando el círculo */
+        }
+        .circle-4 {
+            background: radial-gradient(circle, #86e3ce, #91eae4); /* Degradado del círculo más pequeño */
+            width: 25%; /* Tamaño del cuarto círculo */
+            height: 25%; /* Tamaño del cuarto círculo */
+            top: 37.5%; /* Centrando el círculo */
+            left: 37.5%; /* Centrando el círculo */
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+    </div>
+</body>
+</html>

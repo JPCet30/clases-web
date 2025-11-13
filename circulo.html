@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculos con Degradado</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Degradado de fondo */
+            margin: 0;
+        }
+        .circle-container {
+            display: flex;
+            gap: 10px; /* Espacio entre los círculos */
+        }
+        .circle {
+            width: 100px; /* Ancho del círculo */
+            height: 100px; /* Alto del círculo */
+            border-radius: 50%; /* Hace que el elemento sea un círculo */
+            background: white; /* Color de fondo de los círculos */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em; /* Tamaño del texto dentro del círculo */
+            color: black; /* Color del texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+        <div class="circle">4</div>
+    </div>
+</body>
+</html>

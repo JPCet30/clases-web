@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Flexbox</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            /* Evita scroll general */
+        }
+
+        /* Header fijo */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #3498db;
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            flex: 1;
+            margin-top: 70px;
+            /* Compensa el header fijo */
+            height: calc(100vh - 70px);
+        }
+
+        /* Sidebar izquierdo fijo */
+        .sidebar {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            padding: 2rem 1rem;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #4a6278;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4a6278;
+        }
+
+        /* Área de contenido principal */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            /* Compensa el sidebar */
+            background-color: #ecf0f1;
+            overflow-y: auto;
+            /* Solo scroll vertical */
+            height: 100%;
+        }
+
+        .content-section {
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        .content-section h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        article {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        article h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        article p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Responsive básico */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+            .header {
+                padding: 1rem;
+            }
+
+            .nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Mi Sitio Web</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#">Opción 1</a></li>
+                <li><a href="#">Opción 2</a></li>
+                <li><a href="#">Opción 3</a></li>
+                <li><a href="#">Opción 4</a></li>
+                <li><a href="#">Opción 5</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>Contenido Principal</h2>
+                <article>
+                    <h3>Artículo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                </article>
+                <article>
+                    <h3>Artículo 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                </article>
+                <!-- Más contenido para demostrar el scroll -->
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
